@@ -30,6 +30,8 @@
 
 0.2.0은 요청한 시즌·항공과 행사 1건까지 이어서 등록합니다. 항공시간·날짜 사전 검사, 이미지 일괄 수집, 새 대시보드의 계정 확인, 로그인 유지와 제한된 이어하기를 추가했습니다. **원문 접수부터 최종 재조회까지 20분**을 목표로 전체 시간과 사용자 대기 시간을 기록합니다. 실제 ERP에서 20분 달성 여부는 아직 측정하지 않았습니다.
 
+> 이 저장소는 **Codex 전용**입니다. Claude Code용은 [mhj-stack/eoding_auto_claude](https://github.com/mhj-stack/eoding_auto_claude)에서 설치합니다.
+
 ## Codex에 설치
 
 먼저 **Node.js 22 이상(npm 포함), Python 3.10 이상, Git**을 설치합니다. Windows에서는 Python을 PATH에 추가하고 Codex를 다시 실행합니다.
