@@ -223,7 +223,7 @@ test('portable plugin and optional parent marketplace resolve to the same bootst
   // Installed/portable bundles have no parent marketplace repository. Validate
   // their actual entrypoint; when a catalog exists, preserve its resolution check.
   const item = catalog ? catalog.plugins.find(item => item.name === 'eoding-product-register') : { name: 'eoding-product-register' };
-  if (catalog) assert.equal(catalog.name, 'eoding-auto');
+  if (catalog) assert.equal(catalog.name, 'eoding-auto-codex');
   const root = catalog ? path.resolve(path.dirname(path.dirname(path.dirname(catalogPath))), item.source.path) : fileURLToPath(new URL('../', import.meta.url));
   const plugin = JSON.parse(await readFile(path.join(root, 'plugin.json'), 'utf8'));
   const config = JSON.parse(await readFile(path.join(root, 'mcp.json'), 'utf8'));

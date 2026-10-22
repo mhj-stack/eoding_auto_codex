@@ -1,4 +1,4 @@
-# 어딩 상품등록기 0.5.1
+# 어딩 상품등록기 0.5.1 · Codex
 
 0.5.1: AI가 이미 보낸 원문을 반복 반환하지 않고 기본 진행 응답·JSON을 간결하게 제공합니다. `revision`과 `afterRevision`으로 변경을 기다려 같은 상태의 반복 조회를 줄이며, 예시 상품은 명시적으로 요청할 때만 반환합니다. 콘텐츠 설명은 여러 단락을 한 번에 작성해 보존하고 짧은 설명을 비차단 안내합니다. 같은 콘텐츠 검색은 공유하고 새로 저장한 설명 전체를 독립 재조회합니다. 실제 사용 토큰과 ERP 전체 등록 시간은 별도 운영 측정 대상입니다.
 
@@ -37,11 +37,13 @@
 먼저 **Node.js 22 이상(npm 포함), Python 3.10 이상, Git**을 설치합니다. Windows에서는 Python을 PATH에 추가하고 Codex를 다시 실행합니다.
 
 ```bash
-codex plugin marketplace add mhj-stack/eoding_auto
-codex plugin add eoding-product-register@eoding-auto
+codex plugin marketplace add mhj-stack/eoding_auto_codex
+codex plugin add eoding-product-register@eoding-auto-codex
 ```
 
-설치 후 새 대화를 시작합니다. 앱에서 설치하려면 첫 번째 명령으로 배포처를 추가한 뒤 플러그인 목록의 **어딩 자동화**에서 `eoding-product-register`를 설치해도 됩니다.
+설치 후 새 대화를 시작합니다. 앱에서 설치하려면 첫 번째 명령으로 배포처를 추가한 뒤 플러그인 목록의 **어딩 자동화 (Codex)**에서 `eoding-product-register`를 설치해도 됩니다.
+
+이 저장소는 기존 `mhj-stack/eoding_auto`에서 분리된 독립 배포처 `eoding-auto-codex`입니다. 기존 설치의 업데이트 주소는 자동으로 바뀌지 않습니다. 전환 전에 진행 중인 등록을 마무리하고 기존 로그인·작업 기록의 데이터 폴더를 보존하세요. 두 배포처의 플러그인을 동시에 활성화하지 않습니다.
 
 첫 연결 때 잠금 파일에 지정된 Node 패키지, Chromium, 별도 Python 환경을 개인 데이터 폴더에 자동 준비합니다. 인터넷 연결이 필요하며 몇 분 걸릴 수 있습니다. MCP 연결 시간이 초과되면 설치가 끝난 뒤 플러그인을 다시 연결합니다. 미리 준비하려면 아래 수동 설치 방식을 사용합니다. 이후에는 의존성이 같은 코드·스킬·버전 업데이트에서도 설치된 Node·Python 환경을 재사용합니다. 실제 의존성이나 Node ABI가 바뀌면 새로 설치합니다.
 
@@ -67,8 +69,8 @@ AI에게 상품 자료와 함께 다음처럼 요청합니다.
 로컬 stdio MCP를 지원하는 AI에서 사용할 수 있습니다. 웹 전용 AI에 직접 연결하는 원격 서버는 포함되어 있지 않습니다.
 
 ```bash
-git clone https://github.com/mhj-stack/eoding_auto.git
-cd eoding_auto/plugins/eoding-product-register
+git clone https://github.com/mhj-stack/eoding_auto_codex.git
+cd eoding_auto_codex/plugins/eoding-product-register
 node scripts/plugin-start.mjs --setup-only
 node scripts/configure-plugin.mjs
 ```
@@ -80,8 +82,8 @@ Python이 PATH에 없다면 `EODING_PYTHON`에 Python 실행 파일의 절대경
 ## 업데이트
 
 ```bash
-codex plugin marketplace upgrade eoding-auto
-codex plugin add eoding-product-register@eoding-auto
+codex plugin marketplace upgrade eoding-auto-codex
+codex plugin add eoding-product-register@eoding-auto-codex
 ```
 
 이후 새 대화를 시작합니다. 실행 중인 등록이 끝난 뒤 업데이트하세요. 코드가 바뀌면 새 실행 환경을 준비하고, 의존성이 같으면 기존 설치를 재사용합니다. 이전 상품 작업 기록은 지우지 않습니다.

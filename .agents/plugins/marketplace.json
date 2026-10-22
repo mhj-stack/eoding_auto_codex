@@ -1,7 +1,7 @@
 {
-  "name": "eoding-auto",
+  "name": "eoding-auto-codex",
   "interface": {
-    "displayName": "어딩 자동화"
+    "displayName": "어딩 자동화 (Codex)"
   },
   "plugins": [
     {

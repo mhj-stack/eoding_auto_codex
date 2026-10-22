@@ -31,18 +31,18 @@ def build(output):
         if any(part in {'.local', '.git', 'node_modules', '.venv', '__pycache__', 'evidence', 'profiles', 'runtimes'} for part in Path(name).parts):
             raise ValueError('Private or generated source in ' + name)
         files[name] = raw
-    manifest = {'name': 'eoding-auto', 'version': version, 'sourceOnly': True, 'liveErpVerified': False,
+    manifest = {'name': 'eoding-auto-codex', 'version': version, 'sourceOnly': True, 'liveErpVerified': False,
                 'files': [{'path': name, 'sha256': hashlib.sha256(data).hexdigest()} for name, data in files.items()]}
     files['PACKAGE-MANIFEST.json'] = (json.dumps(manifest, indent=2) + '\n').encode('utf-8')
     output.mkdir(parents=True, exist_ok=True)
-    archive = output / f'eoding-auto-{version}.zip'
+    archive = output / f'eoding-auto-codex-{version}.zip'
     with zipfile.ZipFile(archive, 'w', compression=zipfile.ZIP_DEFLATED) as z:
         for name, data in files.items():
-            z.writestr('eoding-auto/' + name, data)
+            z.writestr('eoding-auto-codex/' + name, data)
     with zipfile.ZipFile(archive) as z:
         assert z.testzip() is None
         for item in manifest['files']:
-            assert hashlib.sha256(z.read('eoding-auto/' + item['path'])).hexdigest() == item['sha256']
+            assert hashlib.sha256(z.read('eoding-auto-codex/' + item['path'])).hexdigest() == item['sha256']
     checksum = hashlib.sha256(archive.read_bytes()).hexdigest()
     archive.with_suffix('.zip.sha256').write_text(f'{checksum}  {archive.name}\n', encoding='utf-8')
     print(json.dumps({'archive': str(archive), 'files': len(files), 'sha256': checksum}))

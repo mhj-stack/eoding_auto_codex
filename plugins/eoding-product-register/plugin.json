@@ -3,7 +3,7 @@
   "name": "eoding-product-register",
   "version": "0.5.1",
   "description": "여행상품 링크·엑셀을 읽고 단일 검토 후 어딩 ERP에 신규 비공개 상품을 등록합니다.",
-  "repository": "https://github.com/mhj-stack/eoding_auto",
+  "repository": "https://github.com/mhj-stack/eoding_auto_codex",
   "author": {
     "name": "주식회사 어딩 (Eoding Inc.)"
   }

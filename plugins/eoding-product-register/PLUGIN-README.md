@@ -1,4 +1,4 @@
-# 어딩 상품등록기 0.5.1
+# 어딩 상품등록기 0.5.1 · Codex
 
 0.5.1: 원문·초안의 반복 응답과 변화 없는 진행 조회를 줄였습니다. 기본 진행 응답은 compact이며 `afterRevision`/`waitMs`로 변경을 기다릴 수 있습니다. `includeSource:true`, `compact:false`, `product_import_schema({includeExample:true})`로 필요한 상세만 명시적으로 요청합니다. 콘텐츠는 `descriptionSections`로 여러 단락을 한 번에 입력하고 합친 설명의 전체 저장 여부를 재조회합니다. 설명 부족 신호는 비차단이며 원문에 없는 사실을 채우지 않습니다.
 
@@ -30,7 +30,7 @@
 
 0.2.0은 항공 비행시간·날짜 사전 검사, 이미지 최대 4개 동시 수집, 원문 보충, 로그인 유지, 단계별 시간 기록, 시즌 쓰기 전 중단 시 제한된 이어하기를 추가합니다. 시간 초과를 이유로 저장이나 최종 검사를 중단하지 않습니다. 행사 생성은 이미 저장한 시즌을 선택하므로 직접입력 시즌을 중복 생성하지 않습니다.
 
-기존 설치는 저장소의 [업데이트 안내](https://github.com/mhj-stack/eoding_auto#업데이트)에 따라 갱신하고, 실행 중인 등록이 끝난 뒤 플러그인을 다시 연결합니다.
+이 배포처의 기존 설치는 저장소의 [업데이트 안내](https://github.com/mhj-stack/eoding_auto_codex#업데이트)에 따라 갱신하고, 실행 중인 등록이 끝난 뒤 플러그인을 다시 연결합니다. 이전 `eoding-auto` 설치는 자동 전환되지 않으므로 [설치 안내](https://github.com/mhj-stack/eoding_auto_codex#codex에-설치)를 확인하고 기존 데이터 폴더를 보존합니다.
 
 이 배포본은 Codex 전용입니다. Claude Code용은 [mhj-stack/eoding_auto_claude](https://github.com/mhj-stack/eoding_auto_claude)를 사용합니다.
 
@@ -39,8 +39,8 @@
 Node.js 22 이상(npm 포함), Python 3.10 이상, Git을 준비하고 실행합니다.
 
 ```bash
-codex plugin marketplace add mhj-stack/eoding_auto
-codex plugin add eoding-product-register@eoding-auto
+codex plugin marketplace add mhj-stack/eoding_auto_codex
+codex plugin add eoding-product-register@eoding-auto-codex
 ```
 
 설치 후 새 대화를 시작합니다. 첫 실행에서 의존성·브라우저·별도 Python 환경을 개인 데이터 폴더에 준비합니다. 저장소가 비공개이면 GitHub 접근 권한과 Git 인증이 필요합니다.
@@ -64,7 +64,7 @@ AI에게 “이 상품을 어딩에 비공개로 등록해줘. 시즌은 제외�
 
 기본정보·전시 이미지·상세·참조정보·전체 일차/식사와 요청한 시즌·KRW 행사 1건을 지원합니다. 행사 상태는 명시한 예약가능(3) 또는 예약마감(4)입니다. 호텔 배정·판매 공개·기존 상품 덮어쓰기·다중 행사는 포함하지 않습니다. 이전 실ERP 등록 및 모의 검사와, 이번 0.2.0으로 실제 ERP에서 20분 안에 신규 등록을 완주하는 검증은 구분합니다.
 
-[전체 설치·업데이트 안내](https://github.com/mhj-stack/eoding_auto#readme) · [검증 범위](docs/plugin-verification.md)
+[전체 설치·업데이트 안내](https://github.com/mhj-stack/eoding_auto_codex#readme) · [검증 범위](docs/plugin-verification.md)
 
 ## 라이선스
 
