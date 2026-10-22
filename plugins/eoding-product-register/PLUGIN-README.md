@@ -32,6 +32,8 @@
 
 기존 설치는 저장소의 [업데이트 안내](https://github.com/mhj-stack/eoding_auto#업데이트)에 따라 갱신하고, 실행 중인 등록이 끝난 뒤 플러그인을 다시 연결합니다.
 
+이 배포본은 Codex 전용입니다. Claude Code용은 [mhj-stack/eoding_auto_claude](https://github.com/mhj-stack/eoding_auto_claude)를 사용합니다.
+
 ## Codex
 
 Node.js 22 이상(npm 포함), Python 3.10 이상, Git을 준비하고 실행합니다.
